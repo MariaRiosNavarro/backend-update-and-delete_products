@@ -1,12 +1,10 @@
 import { StyledForm, StyledHeading, StyledLabel } from "./ProductForm.styled";
 import { StyledButton } from "../Button/Button.styled";
 
-export default function ProductForm({ onSubmit, editMode }) {
+export default function ProductForm({ onSubmit, heading }) {
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>
-        {editMode ? "Edit the joke" : "Enter a new joke"}
-      </StyledHeading>
+    <StyledForm onSubmit={onSubmit}>
+      <StyledHeading>{heading}</StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
         <input type="text" id="name" name="name" />

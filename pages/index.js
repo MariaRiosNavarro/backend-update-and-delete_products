@@ -2,17 +2,16 @@ import ProductList from "../components/ProductList";
 import styled from "styled-components";
 import ProductForm from "../components/ProductForm";
 import useSWR from "swr";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Heading = styled.h1`
   text-align: center;
   color: var(--color-nemo);
 `;
+const heading = "Add a new Fish";
 
 export default function HomePage() {
-  // const {heading, setHeading} = useState("Add a new Fish");
-  // setHeading("Update the Fisch")
-  
+  //Refactoring
   const { mutate } = useSWR("/api/products");
 
   async function handleAddProduct(event) {
@@ -37,8 +36,6 @@ export default function HomePage() {
     mutate();
 
     event.target.reset();
-
-    
   }
 
   return (
@@ -49,7 +46,7 @@ export default function HomePage() {
         </span>
         Fish Shop
       </Heading>
-      <ProductForm dynamicHeading={} onSubmit={handleAddProduct} />
+      <ProductForm onSubmit={handleAddProduct} heading={heading} />
       <hr />
       <ProductList />
     </>
